@@ -1,8 +1,12 @@
 // Chamando o express para o servidor
 const express = require('express')
+const conectarDB = require('./config/db')
 
 // Criando o servidor com express
 const app = express()
+
+// Conectar a base de dados
+conectarDB();
 
 // Porta de como vai abrir o servidor app
 // Se não for process.env.PORT, vai ser a porta 4000
