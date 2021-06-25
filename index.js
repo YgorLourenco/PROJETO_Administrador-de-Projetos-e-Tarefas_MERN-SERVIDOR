@@ -8,9 +8,16 @@ const app = express()
 // Conectar a base de dados
 conectarDB();
 
+// Habilitar express.json
+app.use(express.json({extended: true}));
+
+
 // Porta de como vai abrir o servidor app
 // Se não for process.env.PORT, vai ser a porta 4000
 const PORT = process.env.PORT || 4000
+
+// Importar rotas
+app.use('/api/usuarios', require('./routes/usuarios'))
 
 // Definir a porta principal
 // app.get('/', (req, res) => {
