@@ -18,6 +18,8 @@ const PORT = process.env.PORT || 4000
 
 // Importar rotas
 app.use('/api/usuarios', require('./routes/usuarios'))
+app.use('/api/auth', require('./routes/auth'))
+app.use('/api/projetos', require('./routes/projetos'))
 
 // Definir a porta principal
 // app.get('/', (req, res) => {
