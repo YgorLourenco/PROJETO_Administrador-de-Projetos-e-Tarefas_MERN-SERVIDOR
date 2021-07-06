@@ -8,10 +8,6 @@ const authController = require('../controllers/authController')
 // Iniciar sessão
 // api/auth
 router.post('/', 
-    [
-        check('email', 'Colocar um e-mail valido!').isEmail(),
-        check('password','A senha deve ter no minimo 6 caracteres').isLength({min: 6})
-    ],
     authController.autenticarUsuario
 );
 
