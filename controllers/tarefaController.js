@@ -46,7 +46,8 @@ exports.obterTarefas = async (req, res) => {
     try {
 
         // Extrair o projeto e comprovar que existe
-        const {projeto} = req.body
+        const {projeto} = req.query
+        // console.log(req.query)
             
         const existeProjeto = await Projeto.findById(projeto)
         if(!existeProjeto) {
@@ -58,7 +59,7 @@ exports.obterTarefas = async (req, res) => {
         }
 
         // Obter as tarefas por projeto
-        const tarefas = await Tarefa.find({projeto})
+        const tarefas = await Tarefa.find({projeto}).sort({criado: -1})
         res.json({tarefas})
 
     } catch (error) {
