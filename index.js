@@ -32,6 +32,6 @@ app.use('/api/tarefas', require('./routes/tarefas'))
 // })
 
 // Começo do servidor app
-app.listen(port, '0.0.0.0', () => {
-    console.log(`O servidor esta funcionando na porta ${PORT}`)
+app.listen(port, '0.0.0.0', ( ) => {
+    console.log(`O servidor esta funcionando na porta ${port}`)
 })
