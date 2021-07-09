@@ -91,12 +91,8 @@ exports.atualizarTarefa = async (req, res) => {
 
         // Criar um objeto com a nova informação
         const novaTarefa = {}
-        if(nome) {
             novaTarefa.nome = nome
-        }
-        if(estado) {
             novaTarefa.estado = estado
-        }
 
         // Guardar a tarefa
         tarefa = await Tarefa.findOneAndUpdate({_id : req.params.id}, novaTarefa, {new: true})
@@ -114,9 +110,8 @@ exports.atualizarTarefa = async (req, res) => {
 // Elimina uma tarefa
 exports.eliminarTarefa = async (req, res) => {
     try {
-
         // Extrair o projeto e comprovar que existe
-        const {projeto} = req.body
+        const {projeto} = req.query
         
         // Se existe tarefa ou não
         let tarefa = await Tarefa.findById(req.params.id)
